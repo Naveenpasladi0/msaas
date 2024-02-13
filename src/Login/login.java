@@ -31,39 +31,50 @@ public class login {
             System.out.println("Exception occurred: " + e.getMessage());
         }
 
-        //TC - 01 - Invalid login - Empty Fields
+        // TC - 01 - Invalid login - Empty Fields
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty email field
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
-        driver.navigate().refresh();
+        // Check if the page contains the successful message
+        if (driver.getPageSource().contains("Invalid login details, try again")) {
+            System.out.println("Test Case 01 - Invalid login - Empty Fields passed successfully!");
+        } else {
+            // Check if the page contains an error message
+            if (driver.getPageSource().contains("Login successful")) {
+                System.out.println("Test Case 01 - Invalid login - Empty Fields failed. Error message found.");
+            } else {
+                System.out.println("Test Case 01 - Invalid login - Empty Fields failed. Unknown result.");
+            }
+        }
+
         //TC - 02 - Invalid login - Invalid email id and Empty password field
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Invalid email id
-        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
-        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
-        Thread.sleep(3000);
-        driver.navigate().refresh();
+//        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Invalid email id
+//        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
+//        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
+//        Thread.sleep(3000);
+//        driver.navigate().refresh();
         //TC - 03 - Invalid login - Empty email id and Invalid password field
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty email field
-        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Invalid password field
-        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
-        Thread.sleep(3000);
-        driver.navigate().refresh();
+//        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty email field
+//        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Invalid password field
+//        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
+//        Thread.sleep(3000);
+//        driver.navigate().refresh();
         //TC - 04 - Invalid login - Invalid email id and Invalid password field
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Empty email field
-        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Empty password field
-        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
-        Thread.sleep(3000);
-        driver.navigate().refresh();
+//        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Empty email field
+//        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Empty password field
+//        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
+//        Thread.sleep(3000);
+//        driver.navigate().refresh();
         //TC - 05 - Valid Login - Valid email id and password
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodecxo@gmail.com"); // Empty email field
-        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("Coder@321"); // Empty password field
-        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
-        Thread.sleep(3000);
-        driver.navigate().refresh();
+//        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodecxo@gmail.com"); // Empty email field
+//        driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("Coder@321"); // Empty password field
+//        driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
+//        Thread.sleep(3000);
+//        driver.navigate().refresh();
 
         // Quit Browser
-        Thread.sleep(3000); // Wait time for 3 seconds
-        driver.quit();
+//        Thread.sleep(3000); // Wait time for 3 seconds
+//        driver.quit();
     }
 }

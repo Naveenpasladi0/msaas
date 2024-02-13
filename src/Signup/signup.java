@@ -31,7 +31,6 @@ public class signup {
             System.out.println("Exception occurred: " + e.getMessage());
         }
 
-
         // TC - 01 - Invalid Signup Details - Empty fields
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[2]/div/div/form/div[2]/input")).sendKeys(""); // Empty first name field
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[2]/div/div/form/div[3]/input")).sendKeys(""); // Empty last name field
@@ -50,6 +49,15 @@ public class signup {
         driver.findElement(By.xpath("//button[contains(text(),'Sign Up')]")).click();
         // Refresh the page
         driver.navigate().refresh();
+        // Check if the test case passed and print the corresponding message
+        String currentUrl = driver.getCurrentUrl();
+        String expectedUrlAfterSignup = "https://stagingdev.dotsimple.io/signup";
+        if (currentUrl.equals(expectedUrlAfterSignup)) {
+            System.out.println("Test Case 01 - Invalid Signup Details - Empty fields passed successfully!");
+        } else {
+            System.out.println("Test Case 01 - Invalid Signup Details - Empty fields failed!");
+        }
+
 
         // TC - 02 - Invalid Signup Details - Invalid Details
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[2]/div/div/form/div[2]/input")).sendKeys("exo"); // Empty first name field
@@ -67,6 +75,14 @@ public class signup {
         driver.switchTo().defaultContent();
         // Click on the signup button
         driver.findElement(By.xpath("//button[contains(text(),'Sign Up')]")).click();
+        // Check if the test case passed and print the corresponding message
+        String currentUrl1 = driver.getCurrentUrl();
+        String expectedUrlAfterSignupString = "https://stagingdev.dotsimple.io/signup";
+        if (currentUrl.equals(expectedUrlAfterSignup)) {
+            System.out.println("Test Case 02 - Invalid Signup Details - Invalid Details passed successfully!");
+        } else {
+            System.out.println("Test Case 02 - Invalid Signup Details - Invalid Details failed!");
+        }
 
         // TC - 03 - Valid Signup Details - All Valid Details
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[2]/div/div/form/div[2]/input")).sendKeys("exo"); // Empty first name field
@@ -84,7 +100,14 @@ public class signup {
         driver.switchTo().defaultContent();
         // Click on the signup button
         driver.findElement(By.xpath("//button[contains(text(),'Sign Up')]")).click();
-
+        // Check if the test case passed and print the corresponding message
+        String currentUrl2 = driver.getCurrentUrl();
+        String expectedUrlAfterSignupStringString = "https://stagingdev.dotsimple.io/signup";
+        if (currentUrl.equals(expectedUrlAfterSignup)) {
+            System.out.println("Test Case 03 - Valid Signup Details - All Valid Details passed successfully!");
+        } else {
+            System.out.println("Test Case 03 - Valid Signup Details - All Valid Details failed!");
+        }
         // Quit Browser
         Thread.sleep(3000); // Wait time for 3 seconds
         driver.quit();

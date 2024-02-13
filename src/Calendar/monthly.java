@@ -38,20 +38,17 @@ public class monthly {
 
         // Click on calendar module
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/div[2]/div/div[4]/div/ul/li[1]")).click();
-        // Click on month tab button
-        driver.findElement(By.cssSelector("#calendar > div.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr > div:nth-child(3) > div > button.fc-dayGridMonth-button.fc-button.fc-button-primary.fc-button-active")).click();
-        // Click on + icon
-        driver.findElement(By.cssSelector("#calendar > div.fc-view-harness.fc-view-harness-active > div > table > tbody > tr.fc-scrollgrid-section.fc-scrollgrid-section-body.fc-scrollgrid-section-liquid > td > div > div > div > table > tbody > tr:nth-child(4) > td.fc-daygrid-day.fc-day.fc-day-tue.fc-day-today > a > i")).click();
-        // Click on Text Area and Type Content
-        driver.findElement(By.cssSelector("#originaltext > div.si_she_post--caption.post-textarea > div > div.emojionearea-editor")).sendKeys("Sample Text For Automation Testing");
-        // Click on Add Media button to add Media for the Posts
-        driver.findElement(By.xpath("//*[@id=\"originaltext\"]/div[1]/div[2]/a")).click();
-        // Add New Folder
-        driver.findElement(By.xpath("//*[@id=\"upd-dropzone\"]/div[1]/div[3]/div[3]/div")).click();
-        // Add New Folder Name
-        // 3 Seconds wait time
-        driver.findElement(By.xpath("//*[@id=\"main-si__form\"]/div/form/input[4]")).sendKeys("Exodecxo");
-        // Click on Add Folder button
-        driver.findElement(By.xpath("//*[@id=\"main-si__form\"]/div/form/div/button[2]")).click();
+        // Click on Select Items
+        driver.findElement(By.xpath("//*[@id=\"calendar\"]/div[1]/div[3]/button")).click();
+        // Click on Monthly button
+        driver.findElement(By.xpath("//*[@id=\"calendar\"]/div[1]/div[3]/div/div/button[1]")).click();
+        // Click on All Post
+        driver.findElement(By.xpath("//*[@id=\"horizontal-menu\"]/div/div/a[1]")).click();
+        // Click on + Icon
+        // driver.findElement(By.cssSelector("#calendar > div.fc-view-harness.fc-view-harness-active > div > table > tbody > tr.fc-scrollgrid-section.fc-scrollgrid-section-body.fc-scrollgrid-section-liquid > td > div > div > div > table > tbody > tr:nth-child(3) > td.fc-daygrid-day.fc-day.fc-day-tue.fc-day-today > a > i")).click();
+        // Post - Original Text
+        // driver.findElement(By.xpath("//*[@id=\"originaltext\"]/div[2]/div/div[1]")).sendKeys("This is some sample text");
+        // Post - Add Media
+        // driver.findElement(By.xpath("//*[@id=\"originaltext\"]/div[1]/div[2]/a")).click();
     }
 }
