@@ -35,6 +35,7 @@ public class login {
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
+        driver.navigate().refresh();
         //TC - 02 - Invalid login - Invalid email id and Empty password field
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Invalid email id
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
