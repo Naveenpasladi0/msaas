@@ -2,7 +2,12 @@ package Login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class login {
     public static void main(String[] args) throws InterruptedException {
@@ -10,6 +15,21 @@ public class login {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://stagingdev.dotsimple.io/login");
+
+        // Pop-Up Handling
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement popupElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gleap-tour-popover-content")));
+
+            if (popupElement.isDisplayed()) {
+                driver.findElement(By.cssSelector("#gleap-tour-popover-content > button")).click();
+                System.out.println("Pop-up closed successfully.");
+            } else {
+                System.out.println("No pop-up detected.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
 
         //TC - 01 - Invalid login - Empty Fields
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty email field

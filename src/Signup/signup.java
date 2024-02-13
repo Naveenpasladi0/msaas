@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class signup {
     public static void main(String[] args) throws InterruptedException {
@@ -11,6 +15,22 @@ public class signup {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://stagingdev.dotsimple.io/signup");
+
+        // Pop-Up Handling
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement popupElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gleap-tour-popover-content")));
+
+            if (popupElement.isDisplayed()) {
+                driver.findElement(By.cssSelector("#gleap-tour-popover-content > button")).click();
+                System.out.println("Pop-up closed successfully.");
+            } else {
+                System.out.println("No pop-up detected.");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+
 
         // TC - 01 - Invalid Signup Details - Empty fields
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[2]/div/div/form/div[2]/input")).sendKeys(""); // Empty first name field
