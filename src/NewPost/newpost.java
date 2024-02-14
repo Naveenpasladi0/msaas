@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class newpost {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/ckt-pc32/Downloads/chromedriver-mac-x64/chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -44,15 +44,21 @@ public class newpost {
         driver.findElement(By.cssSelector("#originaltext > div.si_she_post--caption.post-textarea > div > div.emojionearea-editor")).sendKeys("This is some sample text");
         // Add media - click
         driver.findElement(By.cssSelector("#originaltext > div.si__scedule_post--con.d-flex > div.si__calander-field.fold_open--link.add-media-btn")).click();
+        // Wait time period
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        // Checkbox - Select (Image)
-        WebElement checkbox = driver.findElement(By.cssSelector("#upd-dropzone > div.si__upload_media--show.media_col--two > div.media_wrap.scroll-paginate.dropzone.change-bg > div > div.si__all_selected--img.item.sort.sortable-dragged.list-filter-css.file-item-1388.ui-sortable-handle"));
-        // Check if the checkbox is not selected, and then select it
-        if (!checkbox.isSelected()) {
-            checkbox.click();
-            System.out.println("Checkbox selected successfully.");
-        } else {
-            System.out.println("Checkbox is already selected.");
+        // Locate the checkbox element by its XPath or any other suitable locator
+        Thread.sleep(2000);
+        try {
+            WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement checkbox = driver.findElement(By.xpath("/html/body/div[4]/div/div[3]/div[1]/div/div[2]/form/div/div/div[2]/div[3]/div/div[3]/div/div[3]"));
+            if (checkbox.isDisplayed()) {
+                driver.findElement(By.xpath("/html/body/div[4]/div/div[3]/div[1]/div/div[2]/form/div/div/div[2]/div[3]/div/div[3]/div")).click();
+                System.out.println("Checkbox Selected Successfully");
+            } else {
+                System.out.println("checkbox Is Not Selected");
+            }
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
         }
     }
 }
