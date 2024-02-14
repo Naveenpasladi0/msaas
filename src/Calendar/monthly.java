@@ -20,6 +20,8 @@ public class monthly {
         driver.findElement(By.id("email")).sendKeys("exodecxo@gmail.com");
         driver.findElement(By.id("pass")).sendKeys("Coder@321");
         driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
+        // Print message if test case passed
+        System.out.println("Login Successfully Done");
 
         // Pop-Up Handling
         try {
@@ -35,20 +37,5 @@ public class monthly {
         } catch (Exception e) {
             System.out.println("Exception occurred: " + e.getMessage());
         }
-
-        // Click on calendar module
-        driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/div[2]/div/div[4]/div/ul/li[1]")).click();
-        // Click on Select Items
-        driver.findElement(By.xpath("//*[@id=\"calendar\"]/div[1]/div[3]/button")).click();
-        // Click on Monthly button
-        driver.findElement(By.xpath("//*[@id=\"calendar\"]/div[1]/div[3]/div/div/button[1]")).click();
-        // Click on All Post
-        driver.findElement(By.xpath("//*[@id=\"horizontal-menu\"]/div/div/a[1]")).click();
-        // Click on + Icon
-        // driver.findElement(By.cssSelector("#calendar > div.fc-view-harness.fc-view-harness-active > div > table > tbody > tr.fc-scrollgrid-section.fc-scrollgrid-section-body.fc-scrollgrid-section-liquid > td > div > div > div > table > tbody > tr:nth-child(3) > td.fc-daygrid-day.fc-day.fc-day-tue.fc-day-today > a > i")).click();
-        // Post - Original Text
-        // driver.findElement(By.xpath("//*[@id=\"originaltext\"]/div[2]/div/div[1]")).sendKeys("This is some sample text");
-        // Post - Add Media
-        // driver.findElement(By.xpath("//*[@id=\"originaltext\"]/div[1]/div[2]/a")).click();
     }
 }

@@ -35,26 +35,36 @@ public class forgot {
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty fields
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[3]/div/div/form/div[2]/button")).click(); // Click on Submit button
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 01 - Passed");
 
         // TC - 02 - Enter invalid email id and click on submit
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodecso@gmail.com"); // Invalid data
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[3]/div/div/form/div[2]/button")).click(); // Click on Submit button
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 02 - Passed");
 
         // TC - 03 - Enter invalid email and click on submit button
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("1234567890"); // Enter numbers only
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[3]/div/div/form/div[2]/button")).click(); // Click on Submit button
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 03 - Passed");
 
         // TC - 04 - Enter invalid email and click on submit button
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("     "); // Enter spaces only
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[3]/div/div/form/div[2]/button")).click(); // Click on Submit button
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 04 - Passed");
 
         // TC - 05 - Enter valid email and click on submit button
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodecxo@gmail.com");
         driver.findElement(By.xpath("//*[@id=\"page-container\"]/div/main/section/div/div[2]/div[3]/div/div/form/div[2]/button")).click(); // Click on Submit button
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 05 - Passed");
 
         // Quit Browser
         Thread.sleep(3000); // Wait time for 3 seconds

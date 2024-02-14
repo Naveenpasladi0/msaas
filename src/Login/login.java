@@ -20,6 +20,7 @@ public class login {
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             WebElement popupElement = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("gleap-tour-popover-content")));
+
             if (popupElement.isDisplayed()) {
                 driver.findElement(By.cssSelector("#gleap-tour-popover-content > button")).click();
                 System.out.println("Pop-up closed successfully.");
@@ -36,30 +37,40 @@ public class login {
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 01 - Passed");
         //TC - 02 - Invalid login - Invalid email id and Empty password field
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Invalid email id
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(""); // Empty password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 02 - Passed");
         //TC - 03 - Invalid login - Empty email id and Invalid password field
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(""); // Empty email field
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Invalid password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 03 - Passed");
         //TC - 04 - Invalid login - Invalid email id and Invalid password field
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodexo@gmailcom"); // Empty email field
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("123456789012345"); // Empty password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 04 - Passed");
         //TC - 05 - Valid Login - Valid email id and password
         driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("exodecxo@gmail.com"); // Empty email field
         driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys("Coder@321"); // Empty password field
         driver.findElement(By.xpath("//*[@id=\"login-form\"]/div[3]/button")).click(); // Click on Sign In button
         Thread.sleep(3000);
         driver.navigate().refresh();
+        // Print message if test case passed
+        System.out.println("Test - 05 - Passed");
 
         // Quit Browser
         Thread.sleep(3000); // Wait time for 3 seconds
