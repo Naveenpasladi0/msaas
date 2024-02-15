@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class newpost {
+public class contentcategory {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/ckt-pc32/Downloads/chromedriver-mac-x64/chromedriver");
         WebDriver driver = new ChromeDriver();
@@ -41,7 +41,7 @@ public class newpost {
         // New Post - Click
         driver.findElement(By.cssSelector("#page-container > div > div.app-main > div > div.scrollbar-sidebar > div > ul > li:nth-child(2) > a > img")).click();
         // Original Text - Type content
-        driver.findElement(By.cssSelector("#originaltext > div.si_she_post--caption.post-textarea > div > div.emojionearea-editor")).sendKeys("This is some sample text");
+        driver.findElement(By.cssSelector("#originaltext > div.si_she_post--caption.post-textarea > div > div.emojionearea-editor")).sendKeys("This is Content to Category text content - Automated Posts Via .Simple");
         // Add media - click
         driver.findElement(By.cssSelector("#originaltext > div.si__scedule_post--con.d-flex > div.si__calander-field.fold_open--link.add-media-btn")).click();
         // Wait time period
@@ -68,9 +68,13 @@ public class newpost {
         driver.findElement(By.xpath("/html/body/span/span/span/ul/li[2]")).click();
         // Click on Publish button
         driver.findElement(By.cssSelector("#post_publish")).click();
-        // Click on Publish Now Button
-        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > ul > li:nth-child(1) > label")).click();
-        // Click on Last Publish Post Button
-        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > div > div.si__publ_time--setting.repeat__post__container > div.si__publish--post.align-center > div.btn_pub > button")).click();
+        // Click on Content to Category button
+        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > ul > li:nth-child(3) > label")).click();
+        // Click on + Add New Category
+        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > div > div.si__select_category--con.add_content_to_cat.d-none > div.add_category--con.d-flex.align-center.justify-between > div.si__add--con.add-btn > a")).click();
+        // Enter Add New Category Name
+        driver.findElement(By.xpath("/html/body/div[4]/div/div[3]/div[5]/div/div/form/div[1]/div[1]/input")).sendKeys("Exo Category");
+        // Click on Continue Button
+        driver.findElement(By.cssSelector("#newBulkModal > div > div > form > div.modal-footer > button")).click();
     }
 }
