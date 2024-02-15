@@ -60,5 +60,17 @@ public class newpost {
         } catch (Exception e) {
             System.out.println("Exception occurred: " + e.getMessage());
         }
+        // Click on Add Post button
+        driver.findElement(By.xpath("/html/body/div[4]/div/div[3]/div[1]/div/div[2]/form/div/div/div[3]/div[2]/button")).click();
+        // Click on Select Account button
+        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.si__compinn--con.d-flex.justify-content-between > div.si__comp_left--con > div.si_post_platform--con > div > div > span > span.selection > span > ul > li > input")).click();
+        // Click on LinkedIn Account
+        driver.findElement(By.xpath("/html/body/span/span/span/ul/li[2]")).click();
+        // Click on Publish button
+        driver.findElement(By.cssSelector("#post_publish")).click();
+        // Click on Publish Now Button
+        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > ul > li:nth-child(1) > label")).click();
+        // Click on Last Publish Post Button
+        driver.findElement(By.cssSelector("#page-container > div > div.inner-layout > div.post-container.si__newcomp--sec.si__dashboard_right_block--con > form > div.top_header_post_column > div.top_header_post_right_column > div > div > div:nth-child(2) > div > div > div > div > div > div.si__publ_time--setting.repeat__post__container > div.si__publish--post.align-center > div.btn_pub > button")).click();
     }
 }
