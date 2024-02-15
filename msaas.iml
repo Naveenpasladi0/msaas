@@ -215,7 +215,7 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
-      <library>
+      <library name="selenium-server-4.17.0">
         <CLASSES>
           <root url="jar://$USER_HOME$/Documents/JAR/selenium-java-4.15.0/selenium-api-4.15.0.jar!/" />
           <root url="jar://$USER_HOME$/Documents/JAR/selenium-java-4.15.0/selenium-chrome-driver-4.15.0.jar!/" />
